@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# 环境与密钥
+.env
+.env.*
+!.env.example
+
+# 数据库与数据
+*.db
+chroma_data/
+uploads/
+generated_files/
+session_attachments/
+
+# Node
+node_modules/
+dist/
+release/
+*.tsbuildinfo
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.idea/
+.vscode/
+
+# 第三方参考项目（只本地研读，不提交）
+reference/
+
+# 企业真实数据（公司内部文档，禁止入库/公开）
+backend/sample_data_company/
+backend/sample_data_demo/
+backend/sample_meetings/待处理/

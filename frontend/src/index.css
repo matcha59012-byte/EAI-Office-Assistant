@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+/* Apple macOS 玻璃拟态设计 token */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.62);
+  --glass-bg-strong: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-blur: 24px;
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.07);
+  --accent: #0a84ff;
+  --accent-soft: rgba(10, 132, 255, 0.12);
+  --text-primary: #1d1d1f;
+  --text-secondary: #6e6e73;
+  --divider: rgba(0, 0, 0, 0.06);
+}
+
+body {
+  font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  /* 多彩渐变底：让玻璃模糊有东西可透，质感更明显 */
+  background:
+    radial-gradient(1200px 800px at 8% 5%, rgba(10, 132, 255, 0.22), transparent 60%),
+    radial-gradient(1000px 700px at 92% 15%, rgba(175, 82, 222, 0.18), transparent 60%),
+    radial-gradient(900px 700px at 50% 110%, rgba(255, 149, 0, 0.15), transparent 60%),
+    radial-gradient(700px 500px at 15% 95%, rgba(48, 209, 88, 0.12), transparent 60%),
+    linear-gradient(180deg, #f5f5f7 0%, #e8e8ed 100%) fixed;
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+/* 玻璃面板（加强） */
+.glass {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  box-shadow:
+    0 8px 40px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* macOS 圆润玻璃按钮 */
+.mac-btn.ant-btn {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(12px) saturate(160%);
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.mac-btn.ant-btn:hover {
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--accent);
+  border-color: rgba(255, 255, 255, 0.95);
+}
+
+.mac-btn.ant-btn-primary {
+  background: var(--accent);
+  border: none;
+  color: #fff;
+}
+
+.mac-btn.ant-btn-primary:hover {
+  background: #0a6cff;
+  color: #fff;
+}
+
+/* 面板列表项 */
+.panel-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.panel-item-active {
+  background: var(--accent-soft);
+  border-radius: 6px;
+}
+
+/* 覆盖 antd Tabs 内容区高度 */
+.ant-tabs-content-holder,
+.ant-tabs-content,
+.ant-tabs-tabpane {
+  height: 100%;
+}
+
+/* 顶栏内模块 Tab */
+.header-tabs .ant-tabs-nav {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.header-tabs .ant-tabs-tab {
+  color: var(--text-secondary);
+  margin-right: 8px !important;
+  padding: 8px 10px;
+}
+
+.header-tabs .ant-tabs-tab:hover {
+  color: var(--text-primary);
+}
+
+.header-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--accent) !important;
+  font-weight: 600;
+}
+
+.header-tabs .ant-tabs-ink-bar {
+  background: var(--accent);
+}
+
+/* 二级窗口动画（macOS 弹窗手感） */
+@keyframes eaiFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes eaiModalIn {
+  from { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
